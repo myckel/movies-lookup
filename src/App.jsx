@@ -41,16 +41,12 @@ function App() {
   const { search, updateSearch, error } = useSearch()
   const { movies, isLoading, getMovies } = useMovies({ search, sort })
 
-  const handleGetMovies = useCallback(
-    (currentSearch) => {
-      getMovies({ search: currentSearch })
-    },
+  const debouncedGetMovies = useCallback(
+    debounce((search) => {
+      getMovies({ search })
+    }, 300),
     [getMovies]
   )
-
-  const debouncedGetMovies = useCallback(debounce(handleGetMovies, 300), [
-    handleGetMovies
-  ])
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -76,8 +72,14 @@ function App() {
             value={search}
             placeholder='Avengers, Transformers ...'
           />
-          <input type='checkbox' onChange={handleSort} checked={sort} />
           <button type='submit'>Search</button>
+          <input
+            type='checkbox'
+            onChange={handleSort}
+            checked={sort}
+            id='sortMovies'
+          />
+          <label htmlFor='sortMovies'>Sort Movies</label>
         </form>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </header>

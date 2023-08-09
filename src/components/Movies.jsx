@@ -17,8 +17,10 @@ function EmptyResults() {
 }
 
 export function Movies({ movies }) {
-  if (movies === undefined) return null
-  const hasMovies = movies?.length > 0
+  const moviesLength = movies?.length
+  if (!moviesLength) return null
+
+  const hasMovies = moviesLength > 0
 
   return (
     <section>
