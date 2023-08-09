@@ -1,25 +1,49 @@
-# React Challenge Movie Search App
+# React Challenge: Movie Search App
 
-Create an application to search for movies.
+Create an application to search for movies using React.
 
-API to use: - <https://www.omdbapi.com/> Obtain the API Key on the website itself by registering your email.
+**API Resource:**
 
-Requirements:
+- Use the [OMDb API](https://www.omdbapi.com/). Register on the website to obtain your API key.
 
-- It needs to display an input to search for the movie and a button to search.
+## Core Requirements:
 
-- List the movies and show the title, year, and poster.
+1. **User Interface**:
 
-- Ensure the form works.
+   - Feature an input field for movie queries.
+   - Incorporate a search button.
 
-- Display the movies in a responsive grid.
+2. **Display Results**:
 
-- Fetch data from the API.
+   - Showcase movies with details: title, year, and poster.
+   - Adopt a responsive grid for movie display.
 
-First iteration:
+3. **Functionality**:
+   - Ensure the search form's operability.
+   - Connect with the OMDb API for movie data retrieval.
 
-- Prevent the same search from being performed twice in a row.
+## Advanced Features (First Iteration):
 
-- Allow the search to occur automatically as you type.
+- **Intelligent Searching**:
 
-- Prevent the search from being performed continuously as you type (debounce).
+  - Prohibit consecutive identical search queries.
+  - Support real-time search as users type in their queries.
+
+- **Optimization**:
+  - Utilize debounce techniques to mitigate excessive API requests during swift typing.
+
+## How to Run the Application:
+
+1. **Install Dependencies:**:
+
+   ```bash
+   npm install
+   ```
+
+2. **Run the App:**:
+
+   ```bash
+   npm start
+   ```
+
+   **Note: Don't forget to add your OMDb API key in the appropriate place in the codebase.**
