@@ -45,7 +45,7 @@ function App() {
 
   const debounced = useDebouncedCallback((search) => {
     getMovies({ search })
-  }, 500)
+  }, 400)
 
   const handleSubmit = (event) => {
     event.preventDefault()
