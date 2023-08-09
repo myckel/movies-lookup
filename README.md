@@ -1,4 +1,4 @@
-# React Challenge
+# React Challenge Movie Search App
 
 Create an application to search for movies.
 
