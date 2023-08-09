@@ -41,12 +41,16 @@ function App() {
   const { search, updateSearch, error } = useSearch()
   const { movies, isLoading, getMovies } = useMovies({ search, sort })
 
-  const debouncedGetMovies = useCallback(
-    debounce((currentSearch) => {
+  const handleGetMovies = useCallback(
+    (currentSearch) => {
       getMovies({ search: currentSearch })
-    }, 300),
+    },
     [getMovies]
   )
+
+  const debouncedGetMovies = useCallback(debounce(handleGetMovies, 300), [
+    handleGetMovies
+  ])
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -63,7 +67,7 @@ function App() {
   }
 
   return (
-    <div className='header-container'>
+    <div className='page'>
       <header>
         <h1>Movies Search</h1>
         <form className='form' onSubmit={handleSubmit}>

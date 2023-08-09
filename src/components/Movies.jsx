@@ -1,6 +1,6 @@
 function MoviesResults({ movies }) {
   return (
-    <ul>
+    <ul className='movies'>
       {movies.map((movie) => (
         <li className='movie' key={movie.id}>
           <h3>{movie.title}</h3>
